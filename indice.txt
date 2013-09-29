@@ -1,0 +1,33 @@
+- Informações textuais
+
+- Geometria
+Convex hull
+Intersecção retas/segmentos (2 versoes)
+Ponto dentro de polígono
+Centróide
+Círculo definido por 3 pontos
+Círculo mínimo que engloba uma lista de pontos
+Distância na esfera
+Eliminação de Gauss
+
+- Geometria 3D
+Tudo, não importa o que é cada coisa!
+
+- Misc
+Josephu's problem
+Índice de uma permutação / contrário também
+Stable marriage problem
+BIT 1D e 2D
+
+- Number Theory
+Totient
+(a * b) % MOD sem overflow
+ax == b (mod c)
+Conta quantidade de nros <= n que sao múltiplos de algum elemento do vetor
+
+- Grafos
+Matching em grafo bipartido
+Stoer Wagner
+Pape & Conradt's
+Edmond's (blossoms)
+

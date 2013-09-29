@@ -1,0 +1,144 @@
+
+-> Variable types:
+
+     tipo      | bits | mínimo .. máximo | precisão decimal
+---------------+------+------------------+------------------
+char           |   8  |      0 .. 127    |        2
+signed char    |   8  |   -128 .. 127    |        2
+unsigned char  |   8  |      0 .. 255    |        2
+short          |  16  |-32.768 .. 32.767 |        4
+unsigned short |  16  |      0 .. 65.535 |        4
+int            |  32  |   -2e9 .. 2e9    |        9
+unsigned int   |  32  |      0 .. 4e9    |        9
+int64_t        |  64  |  -9e18 .. 9e18   |       18
+uint64_t       |  64  |      0 .. 18e18  |       19
+
+    tipo    | bits | expoente | precisão decimal
+------------+------+----------+------------------
+float       |  32  |      38  |      6
+double      |  64  |     308  |     15
+long double |  80  |  19.728  |     18
+
+
+-> PI: 3.14159265358979323846
+-> Number or primes: n/ln(n) < f(n) < 1.26*n/ln(n)
+
+
+-> Modular multiplicative inverse: A^x == 1 (mod M)
+- If M is prime, then A^(-1) == A^(M-2) (mod M)
+- If A and M are coprime, then x = phi(m) - 1, where:
+phi(n) = (p1-1)*p1^(e1-1) * ... * (pn-1)*pn^(en-1)
+
+
+-> Polygon number:
+P(s,n) = ((s-2)*n*n - (s-4)*n) / 2
+Nao confundir com binomial coefficients!
+
+
+-> Catalan Number:
+1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900,
+2674440, 9694845, 35357670, 129644790, 477638700, 1767263190, 6564120420,
+24466267020, 91482563640, 343059613650, 1289904147324, 4861946401452, ...
+Cn = C(2n,n) / (n+1) = (2*n)! / ((n+1)!*n!)
+Recursive formula => Cn+1 = (4*n + 2) * Cn / (n + 2);
+
+
+-> Diophantine equations: ax + by = c
+if (c % gcd(a,b) != 0) no solution;
+Apos dividir a,b,c por gcd(a,b), temos:
+x = x0*c + b*t,
+y = y0*c - a*t,
+onde (x0, y0) eh uma solucao qualquer (extended euclid em ax+by=1) e t eh um inteiro qualquer.
+
+
+-> Stirling Number of First Kind (Unsigned):
+Conta a quantidade de permutações de N elementos com K ciclos disjuntos.
+Ex.: 34576182 é uma permutação com 2 ciclos disjuntos (1->3->5->6->1 e 2->4->7->8->2).
+S(n,1) = (n-1)!
+S(n,k) = (n-1)*S(n-1,k) + S(n-1,k-1)
+
+
+-> Stirling Number of Second Kind:
+Conta a quantidade de modos que um conjunto de N elementos pode ser particionado em K conjuntos não-vazios.
+S(n,1) = 1
+S(n,k) = S(n-1,k-1) + k*S(n-1,k)
+
+
+-> 1st Order Eulerian numbers:
+Conta a quantidade de permutações dos números 1..N onde exatamente M elementos são maiores que o elemento anterior.
+Ou seja, v[i-1] < v[i] acontece exatamente M vezes para todo 1 < i <= N.
+A(n,0) = A(n,n-1) = 1
+A(n,m) = (n−m)*A(n−1,m−1) + (m+1)*A(n−1,m)
+
+
+-> Pick's theorem:
+A = I + B/2 - 1, where:
+A = area,
+I = points inside the polygon,
+B = points on the boundary,
+
+
+-> Triangle area = 4/3 median triangle area
+
+
+-> Sum of two squares:
+A number N is expressible as a sum of 2 squares if and only if in the prime factorization of N, every prime of the form (4k+3) occurs an even number of times.
+
+
+###############################################################
+
+JAVA 1.6 BigInteger API
+
+Field Summary
+static BigInteger	ONE   The BigInteger constant one.
+static BigInteger	TEN   The BigInteger constant ten.
+static BigInteger	ZERO  The BigInteger constant zero.
+
+Constructor Summary
+BigInteger(byte[] val)
+BigInteger(int signum, byte[] magnitude) Translates the sign-magnitude representation of a BigInteger into a BigInteger.
+BigInteger(String val)
+BigInteger(String val, int radix) Translates the String representation of a BigInteger in the specified radix into a BigInteger.
+
+Method Summary
+ BigInteger	abs();
+ BigInteger	add(BigInteger val);
+ BigInteger	and(BigInteger val);
+ BigInteger	andNot(BigInteger val);
+ int		bitCount() Returns the number of bits in the two's complement representation of this BigInteger that differ from its sign bit.
+ int		bitLength() Returns the number of bits in the minimal two's-complement representation of this BigInteger, excluding a sign bit.
+ BigInteger	clearBit(int n);
+ int		compareTo(BigInteger val) Compares this BigInteger with the specified BigInteger.
+ BigInteger	divide(BigInteger val);
+ BigInteger[]	divideAndRemainder(BigInteger val) Returns an array of two BigIntegers containing (this / val) followed by (this % val).
+ double		doubleValue();
+ boolean	equals(Object x);
+ BigInteger	flipBit(int n) Returns a BigInteger whose value is equivalent to this BigInteger with the designated bit flipped.
+ float		floatValue();
+ BigInteger	gcd(BigInteger val);
+ int		getLowestSetBit();
+ int		intValue();
+ long		longValue();
+ BigInteger	max(BigInteger val);
+ BigInteger	min(BigInteger val);
+ BigInteger	mod(BigInteger m);
+ BigInteger	modInverse(BigInteger m) Returns a BigInteger whose value is (this-1 mod m).
+ BigInteger	modPow(BigInteger exponent, BigInteger m)
+ BigInteger	multiply(BigInteger val);
+ BigInteger	negate();
+ BigInteger	not();
+ BigInteger	or(BigInteger val);
+ BigInteger	pow(int exponent);
+ BigInteger	remainder(BigInteger val)
+ BigInteger	setBit(int n);
+ BigInteger	shiftLeft(int n);
+ BigInteger	shiftRight(int n);
+ int		signum() -1, 0 or 1 as the value of this BigInteger is negative, zero or positive.
+ BigInteger	subtract(BigInteger val);
+ boolean	testBit(int n) Returns true if and only if the designated bit is set.
+ byte[]		toByteArray();
+ String		toString();
+ String		toString(int radix) Returns the String representation of this BigInteger in the given radix.
+static BigInteger	valueOf(long val) Returns a BigInteger whose value is equal to that of the specified long.
+ BigInteger	xor(BigInteger val);
+
